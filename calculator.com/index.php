@@ -28,29 +28,32 @@
           echo '<input class="screen" type="text" name="value" value="'.$x.'">';
           include 'index.html';
         }
-        if(strripos($value, '+')){
-          $rez = $x + $y;
-          $token = '+';
-        }
-        if(strripos($value, '-')){
-          $rez = $x - $y;
-          $token = '-';
-        }
-        if(strripos($value, '*')){
-          $rez = $x * $y;
-          $token = '*';
-        }
-        if(strripos($value, '/')){
-          if($y == "0"){ # / 0
-            $x= "You can't divide by 0";
-            echo '<input class="screen" type="text" name="value" value="'.$x.'">';
-            include 'index.html';
-            exit;  //  die;
-          }else {
-            $rez = $x / $y;
-            $token = '/';
-          }
-        }
+	witch ($value) {
+	    case '+':
+		$rez = $x + $y;
+          	$token = '+';
+		break;
+	    case '-':
+		$rez = $x - $y;
+          	$token = '-';
+		break;
+	    case '*':
+		$rez = $x * $y;
+          	$token = '*';
+		break;
+	    case '*':
+		if($y == "0"){ # / 0
+		    $x= "You can't divide by 0";
+		    echo '<input class="screen" type="text" name="value" value="'.$x.'">';
+		    include 'index.html';
+		    exit;  //  die;
+		  }else {
+		    $rez = $x / $y;
+		    $token = '/';
+		  }
+		break;
+	}
+
         $x=  $x.$token.$y."=".$rez;
         echo '<input class="screen" type="text" name="value" value="'.$x.'">';
         include 'index.html';
