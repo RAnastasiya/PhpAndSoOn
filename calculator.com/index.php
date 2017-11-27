@@ -28,7 +28,7 @@
           echo '<input class="screen" type="text" name="value" value="'.$x.'">';
           include 'index.html';
         }
-	witch ($value) {
+	switch ($value) {
 	    case '+':
 		$rez = $x + $y;
           	$token = '+';
